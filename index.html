@@ -251,6 +251,83 @@
 
 
   
+    <article id="post-about_friend_function_template" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/04/about_friend_function_template/">about_friend_function_template</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/04/about_friend_function_template/" class="archive-article-date">
+  	<time datetime="2020-10-04T08:49:06.050Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于类中的友元函数使用类模板参数的问题"><a href="#关于类中的友元函数使用类模板参数的问题" class="headerlink" title="关于类中的友元函数使用类模板参数的问题"></a>关于类中的友元函数使用类模板参数的问题</h1><h2 id="以重载流运算符为例"><a href="#以重载流运算符为例" class="headerlink" title="以重载流运算符为例"></a>以重载流运算符为例</h2><blockquote>
+<p>模板类中重载流运算符为友元函数时只能在类中实现，因为如果在模板类中声明，类外实现时恰好又是模板函数的定义，此函数就不同于模板类中声明的友元函数，如果此流运算符不使用模板类中的私有成员，则可以直接在类外定义实现（不必重载为类的友元）</p>
+</blockquote>
+<ol>
+<li><p>直接在friend前面声明</p>
+<blockquote>
+<p>template<T> friend ostream&amp; operator&lt;&lt;(ostream&amp;,  const className<T>)</p>
+</blockquote>
+</li>
+<li><p>前置声明类以及函数,类中如下实现即可</p>
+<blockquote>
+<p>friend ostream&amp; operator&lt;&lt; &lt;&gt;(ostream&amp;,  const className<T>)</p>
+</blockquote>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/04/about_friend_function_template/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

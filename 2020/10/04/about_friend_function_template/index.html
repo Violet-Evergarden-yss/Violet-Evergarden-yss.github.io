@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>about_friend_function_template | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="关于类中的友元函数使用类模板参数的问题以重载流运算符为例 模板类中重载流运算符为友元函数时只能在类中实现，因为如果在模板类中声明，类外实现时恰好又是模板函数的定义，此函数就不同于模板类中声明的友元函数，如果此流运算符不使用模板类中的私有成员，则可以直接在类外定义实现（不必重载为类的友元）   直接在friend前面声明  template friend ostream&amp; operator&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="about_friend_function_template">
+<meta property="og:url" content="http://yoursite.com/2020/10/04/about_friend_function_template/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于类中的友元函数使用类模板参数的问题以重载流运算符为例 模板类中重载流运算符为友元函数时只能在类中实现，因为如果在模板类中声明，类外实现时恰好又是模板函数的定义，此函数就不同于模板类中声明的友元函数，如果此流运算符不使用模板类中的私有成员，则可以直接在类外定义实现（不必重载为类的友元）   直接在friend前面声明  template friend ostream&amp; operator&amp;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-04T08:49:06.050Z">
+<meta property="article:modified_time" content="2020-10-04T09:03:30.859Z">
 <meta property="article:author" content="Violet Evergarden">
 <meta name="twitter:card" content="summary">
   
@@ -159,113 +163,188 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-about_friend_function_template" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      about_friend_function_template
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/04/about_friend_function_template/" class="archive-article-date">
+
+        
+        <a href="/2020/10/04/about_friend_function_template/" class="archive-article-date">
   	<time datetime="2020-10-04T08:49:06.050Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/04/about_friend_function_template/">about_friend_function_template</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于类中的友元函数使用类模板参数的问题"><a href="#关于类中的友元函数使用类模板参数的问题" class="headerlink" title="关于类中的友元函数使用类模板参数的问题"></a>关于类中的友元函数使用类模板参数的问题</h1><h2 id="以重载流运算符为例"><a href="#以重载流运算符为例" class="headerlink" title="以重载流运算符为例"></a>以重载流运算符为例</h2><blockquote>
+<p>模板类中重载流运算符为友元函数时只能在类中实现，因为如果在模板类中声明，类外实现时恰好又是模板函数的定义，此函数就不同于模板类中声明的友元函数，如果此流运算符不使用模板类中的私有成员，则可以直接在类外定义实现（不必重载为类的友元）</p>
+</blockquote>
+<ol>
+<li><p>直接在friend前面声明</p>
+<blockquote>
+<p>template<T> friend ostream&amp; operator&lt;&lt;(ostream&amp;,  const className<T>)</p>
+</blockquote>
+</li>
+<li><p>前置声明类以及函数,类中如下实现即可</p>
+<blockquote>
+<p>friend ostream&amp; operator&lt;&lt; &lt;&gt;(ostream&amp;,  const className<T>)</p>
+</blockquote>
+</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/apay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://violet-evergarden-yss.github.io/about_friend_function_template/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/12/My-New-Post/" class="archive-article-date">
-  	<time datetime="2020-07-12T12:18:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/12/My-New-Post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My New Post</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于类中的友元函数使用类模板参数的问题"><span class="toc-number">1.</span> <span class="toc-text">关于类中的友元函数使用类模板参数的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#以重载流运算符为例"><span class="toc-number">1.1.</span> <span class="toc-text">以重载流运算符为例</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/12/hello-world/" class="archive-article-date">
-  	<time datetime="2020-07-12T12:07:17.135Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -292,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
